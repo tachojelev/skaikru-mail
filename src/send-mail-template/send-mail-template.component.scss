@@ -49,13 +49,18 @@ $main-color: #e91e63;
 
 .email-container {
     @include flex-horizontally-centered();
-    margin: auto;
+    width: 100%;
+    // margin: auto;
+    flex-grow: 1;
 
-    .email {
+    .email,
+    .recipient {
         display: flex;
+        width: 45%;
     }
 
-    .add-recipient {
-        display: flex;
+    .email {
+        width: 45%;
+        min-width: 320px;
     }
 }

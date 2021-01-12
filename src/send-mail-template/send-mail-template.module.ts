@@ -4,16 +4,24 @@ import { SendMailTemplateComponent } from './send-mail-template.component';
 import { SendMailTemplateRoutingModule } from './send-mail-template-routing.module';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { EmailComponent } from './email/email.component';
+import { RecipientComponent } from './recipient/recipient.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [SendMailTemplateComponent],
+  declarations: [SendMailTemplateComponent, EmailComponent, RecipientComponent],
   imports: [
     CommonModule,
+    FormsModule,
     SendMailTemplateRoutingModule,
     MatButtonModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule
   ]
 })
 export class SendMailTemplateModule { }

@@ -18,19 +18,9 @@
 </div>
 <div class="email-container" *ngIf="selectedEmalTemplate">
     <div class="email">
-        <mat-card>
-            <mat-card-header>
-                <mat-card-title>{{ selectedEmalTemplate.title }}</mat-card-title>
-                <mat-card-subtitle>{{ selectedEmalTemplate.subtitle }}</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <p>
-                    {{ selectedEmalTemplate.text }}
-                </p>
-            </mat-card-content>
-        </mat-card>
+        <app-email></app-email>
     </div>
-    <div class="add-recipient">
-text
+    <div class="recipient">
+        <app-recipient></app-recipient>
     </div>
 </div>
