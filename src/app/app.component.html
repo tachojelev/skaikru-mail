@@ -3,13 +3,15 @@
   <!-- Header -->
   <mat-toolbar color="primary">
       <mat-toolbar-row>
-          <button mat-icon-button routerLink="/home">
-              <mat-icon class="example-icon">home</mat-icon>
+          <button class="home-button" mat-icon-button routerLink="/home">
+              <!-- <mat-icon class="example-icon">home</mat-icon> -->
+              <img src="favicon.ico">
           </button>
           Skaikru mail
       </mat-toolbar-row>
   </mat-toolbar>
 
+  <!-- Main content -->  
   <main class="content">
       <router-outlet></router-outlet>
   </main>
