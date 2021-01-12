@@ -8,7 +8,11 @@ const routes: Routes = [
     path: '',
     component: HomeComponent,
     data: { title: 'Home component' }
-  }
+  },
+  {
+    path: 'send-mail-template',
+    loadChildren: () => import('../send-mail-template/send-mail-template.module').then(m => m.SendMailTemplateModule)
+  },
 ];
 
 @NgModule({
