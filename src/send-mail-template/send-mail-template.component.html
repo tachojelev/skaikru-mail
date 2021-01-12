@@ -1,1 +1,38 @@
-<p>send-mail-template works!</p>
+<div class="templates-container">
+    <h4 class="mat-h4 template-container-title">
+        Select a template
+    </h4>
+    <div class="cards">
+        <mat-card class="card" *ngFor="let emailTemplate of emailTemplates" (click)="clickEmailTemplate(emailTemplate)">
+            <mat-card-header>
+                <mat-card-title>{{ emailTemplate.title }}</mat-card-title>
+                <mat-card-subtitle>{{ emailTemplate.subtitle }}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <p>
+                    {{ emailTemplate.text }}
+                </p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+<div class="email-container" *ngIf="selectedEmalTemplate">
+    <div class="email">
+
+
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>{{ selectedEmalTemplate.title }}</mat-card-title>
+                <mat-card-subtitle>{{ selectedEmalTemplate.subtitle }}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <p>
+                    {{ selectedEmalTemplate.text }}
+                </p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="add-recipient">
+
+    </div>
+</div>
