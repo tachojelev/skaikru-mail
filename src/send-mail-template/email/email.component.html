@@ -8,7 +8,7 @@
                               [removable]="true"
                               (removed)="removeRecipient(recipient)">
                         {{ recipient.email }}
-                        <mat-icon (click)="editRecipient(recipient)" class="icon">edit</mat-icon>
+                        <mat-icon (click)="editRecipient(recipient)" class="edit-icon icon">edit</mat-icon>
                         <mat-icon matChipRemove class="icon">cancel</mat-icon>
                     </mat-chip>
                     <input [matChipInputFor]="chipList" disabled [matChipInputAddOnBlur]="false">
