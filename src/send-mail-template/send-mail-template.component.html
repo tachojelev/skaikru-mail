@@ -19,7 +19,7 @@
 <div class="email-container" *ngIf="selectedEmailTemplate">
     <div class="email-container-content">
         <div class="email">
-            <app-email></app-email>
+            <app-email [emailTemplate]="selectedEmailTemplate"></app-email>
         </div>
         <div class="recipient">
             <app-recipient [emailTemplate]="selectedEmailTemplate"></app-recipient>

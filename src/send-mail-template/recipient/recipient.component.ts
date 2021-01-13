@@ -11,6 +11,7 @@ import { Recipient } from 'src/models/recipient';
 export class RecipientComponent implements OnInit, OnChanges {
   @Input()
   emailTemplate: EmailTemplate;
+
   recipient: Recipient;
 
   formGroup: FormGroup;
@@ -39,11 +40,8 @@ export class RecipientComponent implements OnInit, OnChanges {
       }
 
       this.emailTemplate.recipients.push(this.recipient);
-      this.recipient = null;
+      this.resetForm();
     }
-
-    console.log(this.emailTemplate.recipients[0]);
-    console.log(this.recipient);
   }
 
   private generateForm(): void {
@@ -57,5 +55,10 @@ export class RecipientComponent implements OnInit, OnChanges {
     }
 
     this.formGroup = form;
+  }
+
+  private resetForm(): void {
+    this.recipient = null;
+    this.formGroup.reset('');
   }
 }

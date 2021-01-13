@@ -8,6 +8,7 @@ import { EmailTemplate } from 'src/models/email-template';
 })
 export class SendMailTemplateComponent implements OnInit {
   selectedEmailTemplate: EmailTemplate;
+
   emailTemplates: Array<EmailTemplate> = [
     {
       title: "Template 01",
