@@ -1,1 +1,34 @@
-<p>recipient works!</p>
+<mat-card class="card">
+    <mat-card-header>
+        <div mat-card-avatar>
+            <mat-icon>perm_identity</mat-icon>
+        </div>
+        <mat-card-title>New recipient</mat-card-title>
+        <mat-card-subtitle>Please fill in the blanks for a new recipient and add them to the email's recipients list.</mat-card-subtitle>
+      </mat-card-header>
+    <mat-card-content>
+        <form class="properties-form" name="propertiesForm">
+            <!-- <mat-form-field *ngFor="let i of [1,2,3,4,1,2,3,4,1,2,3,4]">
+                <mat-label>Property name</mat-label>
+                <input matInput>
+            </mat-form-field> -->
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput required>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Name</mat-label>
+                <input matInput required>
+            </mat-form-field>
+        </form>
+    </mat-card-content>
+    <mat-card-actions align="right">
+        <button
+            mat-raised-button
+            color="accent"
+            (click)="addRecipient()"
+            [disabled]="false">
+            Add recipient
+        </button>
+      </mat-card-actions>
+</mat-card>

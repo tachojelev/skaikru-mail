@@ -50,17 +50,28 @@ $main-color: #e91e63;
 .email-container {
     @include flex-horizontally-centered();
     width: 100%;
-    // margin: auto;
     flex-grow: 1;
 
-    .email,
-    .recipient {
+    .email-container-content {
         display: flex;
-        width: 45%;
-    }
+        justify-content: center;
+        flex-direction: row;
+        width: 100%;
+        max-height: 800px;
+        margin: 16px;
 
-    .email {
-        width: 45%;
-        min-width: 320px;
+        .email,
+        .recipient {
+            display: flex;
+        }
+    
+        .email {
+            width: 45%;
+            min-width: 320px;
+        }
+    
+        .recipient {
+            width: 480px;
+        }
     }
 }
