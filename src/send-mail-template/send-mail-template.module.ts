@@ -9,13 +9,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { EmailComponent } from './email/email.component';
 import { RecipientComponent } from './recipient/recipient.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [SendMailTemplateComponent, EmailComponent, RecipientComponent],
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     SendMailTemplateRoutingModule,
     MatButtonModule,
     MatIconModule,

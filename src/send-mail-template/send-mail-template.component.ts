@@ -7,37 +7,37 @@ import { EmailTemplate } from 'src/models/email-template';
   styleUrls: ['./send-mail-template.component.scss']
 })
 export class SendMailTemplateComponent implements OnInit {
-  selectedEmalTemplate: EmailTemplate;
+  selectedEmailTemplate: EmailTemplate;
   emailTemplates: Array<EmailTemplate> = [
     {
-      title: "Template 1",
-      subtitle: "subtitle 1",
-      text: "text 1"
+      title: "Template 01",
+      subtitle: "templ01",
+      message: "Hello there, how are you?",
+      placeholders: ['email', 'name', 'age', 'favorite-color'],
+      recipients: []
     },
     {
-      title: "Template 2",
-      subtitle: "subtitle 2",
-      text: "text 2"
+      title: "Template 02",
+      subtitle: "templ02",
+      message: "Hi there, how are you?",
+      placeholders: ['email', 'education', 'age', 'marital-status'],
+      recipients: []
     },
     {
-      title: "Template 3",
-      subtitle: "subtitle 3",
-      text: "text 3"
-    },
-    {
-      title: "Template 4",
-      subtitle: "subtitle 4",
-      text: "text 4"
+      title: "Template 03",
+      subtitle: "templ03",
+      message: "Wassup there, how are you?",
+      placeholders: ['email', 'name'],
+      recipients: []
     }
-  ];
+  ]
 
   constructor() { }
 
   ngOnInit(): void {
-    
   }
 
   clickEmailTemplate(emailTemplate: EmailTemplate): void {
-    this.selectedEmalTemplate = emailTemplate;
+    this.selectedEmailTemplate = emailTemplate;
   }
 }

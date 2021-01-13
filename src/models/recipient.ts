@@ -1,5 +1,5 @@
 
 export class Recipient {
-    name: string;
     email: string;
+    placeholderValues: Map<string, string>;
 }

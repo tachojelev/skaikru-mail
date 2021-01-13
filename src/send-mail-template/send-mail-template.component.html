@@ -10,19 +10,19 @@
             </mat-card-header>
             <mat-card-content>
                 <p>
-                    {{ emailTemplate.text }}
+                    {{ emailTemplate.message }}
                 </p>
             </mat-card-content>
         </mat-card>
     </div>
 </div>
-<div class="email-container" *ngIf="selectedEmalTemplate">
+<div class="email-container" *ngIf="selectedEmailTemplate">
     <div class="email-container-content">
         <div class="email">
             <app-email></app-email>
         </div>
         <div class="recipient">
-            <app-recipient></app-recipient>
+            <app-recipient [emailTemplate]="selectedEmailTemplate"></app-recipient>
         </div>
     </div>
 </div>
