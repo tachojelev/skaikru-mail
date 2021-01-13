@@ -1,21 +1,23 @@
 <div class="templates-container">
-    <h4 class="mat-h4 template-container-title">
-        Select a template
-    </h4>
-    <div class="cards">
-        <mat-card class="card"
-                  *ngFor="let emailTemplate of emailTemplates"
-                  (click)="onClickEmailTemplate(emailTemplate)">
-            <mat-card-header>
-                <mat-card-title>{{ emailTemplate.title }}</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-                <p>
-                    {{ emailTemplate.message }}
-                </p>
-            </mat-card-content>
-        </mat-card>
-    </div>
+    <ng-container *ngIf="emailTemplates!.length else empty">
+        <h4 class="mat-h4 template-container-title">
+            Select a template
+        </h4>
+        <div class="cards">
+            <mat-card class="card"
+                    *ngFor="let emailTemplate of emailTemplates"
+                    (click)="onClickEmailTemplate(emailTemplate)">
+                <mat-card-header>
+                    <mat-card-title>{{ emailTemplate.title }}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <p>
+                        {{ emailTemplate.message }}
+                    </p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </ng-container>
 </div>
 <div class="email-container" *ngIf="selectedEmailTemplate">
     <div class="email-container-content">
@@ -27,3 +29,12 @@
         </div>
     </div>
 </div>
+
+<ng-template #empty>
+    <h4 class="mat-h4 template-container-title">
+        It's a bit lonely in here, create your first template!
+    </h4>
+    <button mat-raised-button routerLink="/view-templates">
+        Add template
+    </button>
+</ng-template>

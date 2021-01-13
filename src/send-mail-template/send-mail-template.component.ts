@@ -11,23 +11,25 @@ import { Recipient } from 'src/models/recipient';
 export class SendMailTemplateComponent implements OnInit {
   selectedEmailTemplate: EmailTemplate;
 
-  emailTemplates: Array<EmailTemplate> = [
-    {
-      title: "Template 01",
-      message: "Hello there, how are you?",
-      placeholders: ['email', 'name', 'age', 'favorite-color']
-    },
-    {
-      title: "Template 02",
-      message: "Hi there, how are you?",
-      placeholders: ['email', 'education', 'age', 'marital-status']
-    },
-    {
-      title: "Template 03",
-      message: "Wassup there, how are you?",
-      placeholders: ['email', 'name']
-    }
-  ];
+  // emailTemplates: Array<EmailTemplate> = [
+  //   {
+  //     title: "Template 01",
+  //     message: "Hello there, how are you?",
+  //     placeholders: ['email', 'name', 'age', 'favorite-color']
+  //   },
+  //   {
+  //     title: "Template 02",
+  //     message: "Hi there, how are you?",
+  //     placeholders: ['email', 'education', 'age', 'marital-status']
+  //   },
+  //   {
+  //     title: "Template 03",
+  //     message: "Wassup there, how are you?",
+  //     placeholders: ['email', 'name']
+  //   }
+  // ];
+
+  emailTemplates: Array<EmailTemplate> = [];
 
   recipients: Array<Recipient> = [];
 

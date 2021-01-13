@@ -1,0 +1,34 @@
+<div class="container">
+    <button mat-raised-button color="primary">
+        + Create new email template
+    </button>
+    <ng-container *ngIf="emailTemplates!.length else empty">
+        <div class="cards">
+            <mat-card class="card"
+                    *ngFor="let emailTemplate of emailTemplates">
+                <mat-card-header>
+                    <mat-card-title>{{ emailTemplate.title }}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <p>
+                        {{ emailTemplate.message }}
+                    </p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-icon-button>
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                    <button mat-icon-button>
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </ng-container>
+</div>
+
+<ng-template #empty>
+    <h4 class="mat-h4 title">
+        No templates :(
+    </h4>
+</ng-template>

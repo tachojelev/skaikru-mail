@@ -1,13 +1,12 @@
   
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home.component';
+import { ViewTemplatesComponent } from './view-templates.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
-    data: { title: 'Home component' }
+    component: ViewTemplatesComponent
   }
 ];
 
@@ -15,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class HomeRoutingModule { }
+export class CreateMailTemplateRoutingModule { }
