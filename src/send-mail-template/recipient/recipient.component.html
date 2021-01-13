@@ -4,21 +4,21 @@
             <mat-icon>perm_identity</mat-icon>
         </div>
         <mat-card-title>New recipient</mat-card-title>
-        <mat-card-subtitle>Please fill in the blanks for a new recipient and add them to the email's recipients list.
+        <mat-card-subtitle>
+            Please fill in the blanks for a new recipient and add them to the email's recipients list.
         </mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
         <ng-container *ngIf="emailTemplate">
-            <form class="properties-form" [formGroup]="formGroup" name="formGroup" #test="ngForm">
+            <form class="properties-form"
+                  [formGroup]="formGroup"
+                  name="formGroup">
                 <mat-form-field *ngFor="let placeholder of emailTemplate.placeholders">
                     <mat-label>{{ placeholder }}</mat-label>
-                    <input
-                        matInput
-                        required
-                        [formControlName]="placeholder"
+                    <input matInput
+                           required
+                           [formControlName]="placeholder"
                     >
-                    <!-- [ngModel]="recipient.placeholderValues.get(placeholder)"
-                    (ngModelChange)="recipient.placeholderValues.set(placeholder, $event)" -->
                 </mat-form-field>
             </form>
         </ng-container>

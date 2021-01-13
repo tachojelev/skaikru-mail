@@ -1,4 +1,4 @@
-$main-color: #e91e63;
+@import '../shared/variables';
 
 :host {
     width: 100%;
@@ -13,7 +13,7 @@ $main-color: #e91e63;
     height: 100%;
 
     mat-toolbar {
-        background-color: $main-color;
+        background-color: $primary-color;
     }
 
     header {

@@ -31,7 +31,7 @@ export class SendMailTemplateComponent implements OnInit {
       placeholders: ['email', 'name'],
       recipients: []
     }
-  ]
+  ];
 
   constructor() { }
 
