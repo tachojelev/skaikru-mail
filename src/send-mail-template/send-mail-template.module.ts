@@ -8,12 +8,14 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatDialogModule } from '@angular/material/dialog';
 import { EmailComponent } from './email/email.component';
 import { RecipientComponent } from './recipient/recipient.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditRecipientComponent } from './edit-recipient/edit-recipient.component';
 
 @NgModule({
-  declarations: [SendMailTemplateComponent, EmailComponent, RecipientComponent],
+  declarations: [SendMailTemplateComponent, EmailComponent, RecipientComponent, EditRecipientComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -24,7 +26,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    MatChipsModule
+    MatChipsModule,
+    MatDialogModule
   ]
 })
 export class SendMailTemplateModule { }

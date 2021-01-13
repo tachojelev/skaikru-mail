@@ -6,9 +6,10 @@
                 <mat-chip-list #chipList aria-label="Fruit selection">
                     <mat-chip *ngFor="let recipient of emailTemplate.recipients"
                               [removable]="true"
-                              (removed)="remove(recipient)">
+                              (removed)="removeRecipient(recipient)">
                         {{ recipient.email }}
-                        <mat-icon matChipRemove>cancel</mat-icon>
+                        <mat-icon (click)="editRecipient(recipient)" class="icon">edit</mat-icon>
+                        <mat-icon matChipRemove class="icon">cancel</mat-icon>
                     </mat-chip>
                     <input [matChipInputFor]="chipList" disabled [matChipInputAddOnBlur]="false">
                 </mat-chip-list>

@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { EmailTemplate } from 'src/models/email-template';
 import { Recipient } from 'src/models/recipient';
+import { EditRecipientComponent } from '../edit-recipient/edit-recipient.component';
 
 @Component({
   selector: 'app-email',
@@ -11,12 +13,12 @@ export class EmailComponent implements OnInit {
   @Input()
   emailTemplate: EmailTemplate;
 
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
-  remove(recipient: Recipient): void {
+  removeRecipient(recipient: Recipient): void {
     const index = this.emailTemplate.recipients.indexOf(recipient);
 
     if (index >= 0) {
@@ -24,8 +26,17 @@ export class EmailComponent implements OnInit {
     }
   }
 
+  editRecipient(recipient: Recipient): void {
+    const dialogRef = this.dialog.open(EditRecipientComponent, {
+      data: { recipient: recipient },
+      disableClose: true,
+      minWidth: 400,
+      minHeight: 300,
+      autoFocus: false
+    });
+  }
+
   send(): void {
     console.log(this.emailTemplate);
   }
-
 }
