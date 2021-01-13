@@ -19,7 +19,11 @@
             </mat-form-field>
             <mat-form-field class="message-form-field">
                 <mat-label>Message</mat-label>
-                <textarea matInput matTextareaAutosize class="message-textarea"></textarea>
+                <textarea matInput
+                          matTextareaAutosize
+                          class="message-textarea"
+                          [value]="emailTemplate.message"
+                          [disabled]="true"></textarea>
             </mat-form-field>
         </form>
     </mat-card-content>
