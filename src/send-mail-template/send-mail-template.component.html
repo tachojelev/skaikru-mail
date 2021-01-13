@@ -3,10 +3,11 @@
         Select a template
     </h4>
     <div class="cards">
-        <mat-card class="card" *ngFor="let emailTemplate of emailTemplates" (click)="clickEmailTemplate(emailTemplate)">
+        <mat-card class="card"
+                  *ngFor="let emailTemplate of emailTemplates"
+                  (click)="onClickEmailTemplate(emailTemplate)">
             <mat-card-header>
                 <mat-card-title>{{ emailTemplate.title }}</mat-card-title>
-                <mat-card-subtitle>{{ emailTemplate.subtitle }}</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
                 <p>
@@ -19,10 +20,10 @@
 <div class="email-container" *ngIf="selectedEmailTemplate">
     <div class="email-container-content">
         <div class="email">
-            <app-email [emailTemplate]="selectedEmailTemplate"></app-email>
+            <app-email [emailTemplate]="selectedEmailTemplate" [recipients]="recipients"></app-email>
         </div>
         <div class="recipient">
-            <app-recipient [emailTemplate]="selectedEmailTemplate"></app-recipient>
+            <app-recipient [emailTemplate]="selectedEmailTemplate" [recipients]="recipients"></app-recipient>
         </div>
     </div>
 </div>

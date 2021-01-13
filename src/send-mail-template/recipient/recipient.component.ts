@@ -12,7 +12,10 @@ export class RecipientComponent implements OnInit, OnChanges {
   @Input()
   emailTemplate: EmailTemplate;
 
-  recipient: Recipient;
+  @Input()
+  recipients: Array<Recipient>;
+
+  currentRecipient: Recipient;
 
   formGroup: FormGroup;
 
@@ -30,16 +33,16 @@ export class RecipientComponent implements OnInit, OnChanges {
 
   addRecipient(): void {
     if (this.formGroup.valid) {
-      this.recipient = new Recipient();
+      this.currentRecipient = new Recipient();
       /* Must have an email placeholder */
-      this.recipient.email = this.formGroup.controls.email.value;
-      this.recipient.placeholderValues = new Map();
+      this.currentRecipient.email = this.formGroup.controls.email.value;
+      this.currentRecipient.placeholderValues = new Map();
 
       for (const placeholder of this.emailTemplate.placeholders) {
-        this.recipient.placeholderValues.set(placeholder, this.formGroup.controls[placeholder].value);
+        this.currentRecipient.placeholderValues.set(placeholder, this.formGroup.controls[placeholder].value);
       }
 
-      this.emailTemplate.recipients.push(this.recipient);
+      this.recipients.push(this.currentRecipient);
       this.resetForm();
     }
   }
@@ -56,7 +59,7 @@ export class RecipientComponent implements OnInit, OnChanges {
   }
 
   private resetForm(): void {
-    this.recipient = null;
+    this.currentRecipient = null;
     this.formGroup.reset('');
   }
 }

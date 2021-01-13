@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { EmailRequest } from 'src/models/email-request';
 import { EmailTemplate } from 'src/models/email-template';
+import { Recipient } from 'src/models/recipient';
 
 @Component({
   selector: 'app-send-mail-template',
@@ -12,33 +14,32 @@ export class SendMailTemplateComponent implements OnInit {
   emailTemplates: Array<EmailTemplate> = [
     {
       title: "Template 01",
-      subtitle: "templ01",
       message: "Hello there, how are you?",
-      placeholders: ['email', 'name', 'age', 'favorite-color'],
-      recipients: []
+      placeholders: ['email', 'name', 'age', 'favorite-color']
     },
     {
       title: "Template 02",
-      subtitle: "templ02",
       message: "Hi there, how are you?",
-      placeholders: ['email', 'education', 'age', 'marital-status'],
-      recipients: []
+      placeholders: ['email', 'education', 'age', 'marital-status']
     },
     {
       title: "Template 03",
-      subtitle: "templ03",
       message: "Wassup there, how are you?",
-      placeholders: ['email', 'name'],
-      recipients: []
+      placeholders: ['email', 'name']
     }
   ];
+
+  recipients: Array<Recipient> = [];
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  clickEmailTemplate(emailTemplate: EmailTemplate): void {
-    this.selectedEmailTemplate = emailTemplate;
+  onClickEmailTemplate(emailTemplate: EmailTemplate): void {
+    if (emailTemplate !== this.selectedEmailTemplate) {
+      this.selectedEmailTemplate = emailTemplate;
+      this.recipients = [];
+    }
   }
 }

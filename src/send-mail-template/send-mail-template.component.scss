@@ -39,6 +39,7 @@
     @include flex-row-centered();
 
     width: 100%;
+    min-height: 400px;
     flex-grow: 1;
 
     .email-container-content {
@@ -46,7 +47,6 @@
         justify-content: center;
         flex-direction: row;
         width: 100%;
-        max-height: 800px;
         margin: 16px;
 
         .email,

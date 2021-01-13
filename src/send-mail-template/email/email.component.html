@@ -1,18 +1,19 @@
 <mat-card class="card">
     <mat-card-content>
         <form>
-            <mat-form-field class="example-chip-list">
+            <mat-form-field class="chips-form-field">
                 <mat-label>To</mat-label>
                 <mat-chip-list #chipList aria-label="Fruit selection">
-                    <mat-chip *ngFor="let recipient of emailTemplate.recipients"
+                    <mat-chip *ngFor="let recipient of recipients"
                               [removable]="true"
                               (removed)="removeRecipient(recipient)">
                         {{ recipient.email }}
                         <mat-icon (click)="editRecipient(recipient)" class="edit-icon icon">edit</mat-icon>
                         <mat-icon matChipRemove class="icon">cancel</mat-icon>
                     </mat-chip>
-                    <input [matChipInputFor]="chipList" disabled [matChipInputAddOnBlur]="false">
+                    <input [matChipInputFor]="chipList" [disabled]="true" [matChipInputAddOnBlur]="false">
                 </mat-chip-list>
+                <mat-hint>Recipients are added through the form.</mat-hint>
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Subject</mat-label>

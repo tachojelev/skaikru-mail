@@ -13,16 +13,19 @@ export class EmailComponent implements OnInit {
   @Input()
   emailTemplate: EmailTemplate;
 
+  @Input()
+  recipients: Array<Recipient>;
+
   constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
   removeRecipient(recipient: Recipient): void {
-    const index = this.emailTemplate.recipients.indexOf(recipient);
+    const index = this.recipients.indexOf(recipient);
 
     if (index >= 0) {
-      this.emailTemplate.recipients.splice(index, 1);
+      this.recipients.splice(index, 1);
     }
   }
 
@@ -38,5 +41,7 @@ export class EmailComponent implements OnInit {
 
   send(): void {
     console.log(this.emailTemplate);
+    console.log(this.recipients);
+    // Build request and send to BE
   }
 }

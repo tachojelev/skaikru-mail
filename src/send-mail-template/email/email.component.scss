@@ -5,10 +5,24 @@
     display: flex;
     flex-direction: column;
 
+    mat-card {
+        height: 100%;
+
+        mat-card-content {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
     mat-form-field {
         display: block;
+        margin-bottom: 8px;
         width: 100%;
     }
+
+    // ::ng-deep .chips-form-field .mat-form-field-underline {
+    //     display: none;
+    //  }
 
     .icon {
         cursor: pointer;
@@ -19,6 +33,7 @@
     }
 
     .message-textarea {
-        min-height: 280px;
+        min-height: 200px;
     }
 }
+
