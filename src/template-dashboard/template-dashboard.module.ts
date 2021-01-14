@@ -12,9 +12,10 @@ import { SendMailTemplateRoutingModule } from 'src/send-mail-template/send-mail-
 import { ViewTemplatesComponent } from './view-templates.component';
 import { TemplateDashboardRoutingModule } from './create-mail-template-routing.module';
 import { CreateTemplateComponent } from './create-template/create-template.component';
+import { EditTemplateComponent } from './edit-template/edit-template.component';
 
 @NgModule({
-  declarations: [ViewTemplatesComponent, CreateTemplateComponent],
+  declarations: [ViewTemplatesComponent, CreateTemplateComponent, EditTemplateComponent],
   imports: [
     CommonModule,
     TemplateDashboardRoutingModule,

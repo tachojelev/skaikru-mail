@@ -1,5 +1,5 @@
 <div class="container">
-    <button mat-raised-button color="primary" (click)="onCreateTemplateClick()">
+    <button mat-raised-button color="primary" (click)="onCreateTemplate()">
         + Create new email template
     </button>
     <ng-container *ngIf="emailTemplates!.length else empty">
@@ -18,7 +18,7 @@
                     <button mat-icon-button>
                         <mat-icon>delete</mat-icon>
                     </button>
-                    <button mat-icon-button>
+                    <button mat-icon-button (click)="onEditTemplate(emailTemplate)">
                         <mat-icon>edit</mat-icon>
                     </button>
                 </mat-card-actions>

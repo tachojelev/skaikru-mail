@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { EmailTemplate } from 'src/models/email-template';
 import { CreateTemplateComponent } from './create-template/create-template.component';
+import { EditTemplateComponent } from './edit-template/edit-template.component';
 
 @Component({
   selector: 'app-view-templates',
@@ -44,9 +45,20 @@ export class ViewTemplatesComponent implements OnInit {
     // }
   }
 
-  onCreateTemplateClick(): void {
+  onCreateTemplate(): void {
     const dialogRef = this.dialog.open(CreateTemplateComponent, {
       data: { },
+      disableClose: true,
+      width: '700px',
+      minHeight: 500,
+      maxHeight: 800,
+      autoFocus: false
+    });
+  }
+
+  onEditTemplate(emailTemplate: EmailTemplate): void {
+    const dialogRef = this.dialog.open(EditTemplateComponent, {
+      data: { emailTemplate: emailTemplate },
       disableClose: true,
       width: '700px',
       minHeight: 500,
