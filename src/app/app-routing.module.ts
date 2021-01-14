@@ -14,7 +14,7 @@ const routes: Routes = [
   },
   {
     path: 'view-templates',
-    loadChildren: () => import('../create-mail-template/create-mail-template.module').then(m => m.CreateMailTemplateModule)
+    loadChildren: () => import('../template-dashboard/template-dashboard.module').then(m => m.TemplateDashboardModule)
   },
   {
     path: 'send-mail-template',

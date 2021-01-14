@@ -10,13 +10,13 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SendMailTemplateRoutingModule } from 'src/send-mail-template/send-mail-template-routing.module';
 import { ViewTemplatesComponent } from './view-templates.component';
-import { CreateMailTemplateRoutingModule } from './create-mail-template-routing.module';
+import { TemplateDashboardRoutingModule } from './create-mail-template-routing.module';
 
 @NgModule({
   declarations: [ViewTemplatesComponent],
   imports: [
     CommonModule,
-    CreateMailTemplateRoutingModule,
+    TemplateDashboardRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     SendMailTemplateRoutingModule,
@@ -29,4 +29,4 @@ import { CreateMailTemplateRoutingModule } from './create-mail-template-routing.
     MatDialogModule
   ]
 })
-export class CreateMailTemplateModule { }
+export class TemplateDashboardModule { }
