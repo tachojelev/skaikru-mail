@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { EmailTemplate } from 'src/models/email-template';
 import { CreateTemplateComponent } from './create-template/create-template.component';
+import { DeleteTemplateComponent } from './delete-template/delete-template.component';
 import { EditTemplateComponent } from './edit-template/edit-template.component';
 
 @Component({
@@ -62,6 +63,17 @@ export class ViewTemplatesComponent implements OnInit {
       disableClose: true,
       width: '700px',
       minHeight: 500,
+      maxHeight: 800,
+      autoFocus: false
+    });
+  }
+
+  onDeleteTemplate(emailTemplate: EmailTemplate): void {
+    const dialogRef = this.dialog.open(DeleteTemplateComponent, {
+      data: { emailTemplate: emailTemplate },
+      disableClose: true,
+      width: '500px',
+      minHeight: 200,
       maxHeight: 800,
       autoFocus: false
     });
