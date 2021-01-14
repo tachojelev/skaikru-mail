@@ -11,9 +11,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SendMailTemplateRoutingModule } from 'src/send-mail-template/send-mail-template-routing.module';
 import { ViewTemplatesComponent } from './view-templates.component';
 import { TemplateDashboardRoutingModule } from './create-mail-template-routing.module';
+import { CreateTemplateComponent } from './create-template/create-template.component';
 
 @NgModule({
-  declarations: [ViewTemplatesComponent],
+  declarations: [ViewTemplatesComponent, CreateTemplateComponent],
   imports: [
     CommonModule,
     TemplateDashboardRoutingModule,

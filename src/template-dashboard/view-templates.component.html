@@ -1,5 +1,5 @@
 <div class="container">
-    <button mat-raised-button color="primary">
+    <button mat-raised-button color="primary" (click)="onCreateTemplateClick()">
         + Create new email template
     </button>
     <ng-container *ngIf="emailTemplates!.length else empty">

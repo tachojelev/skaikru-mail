@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { EmailTemplate } from 'src/models/email-template';
+import { CreateTemplateComponent } from './create-template/create-template.component';
 
 @Component({
   selector: 'app-view-templates',
@@ -28,7 +30,7 @@ export class ViewTemplatesComponent implements OnInit {
 
   // emailTemplates: Array<EmailTemplate> = [];
 
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
     // for (let index = 0; index < 100; index++) {
@@ -40,5 +42,16 @@ export class ViewTemplatesComponent implements OnInit {
     //     }
     //   );      
     // }
+  }
+
+  onCreateTemplateClick(): void {
+    const dialogRef = this.dialog.open(CreateTemplateComponent, {
+      data: { },
+      disableClose: true,
+      width: '700px',
+      minHeight: 500,
+      maxHeight: 800,
+      autoFocus: false
+    });
   }
 }

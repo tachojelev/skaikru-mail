@@ -1,0 +1,17 @@
+mat-form-field {
+    display: block;
+    margin-bottom: 8px;
+    width: 100%;
+}
+
+.message-form-field {
+    width: 100%;
+
+    textarea {
+        min-height: 300px;
+    }
+}
+
+.actions {
+    justify-content: space-between;
+}
