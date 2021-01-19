@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { EmailRequest } from 'src/models/email-request';
 import { EmailTemplate } from 'src/models/email-template';
 import { Recipient } from 'src/models/recipient';
+import { TemplateService } from 'src/services/template-service.service';
 
 @Component({
   selector: 'app-send-mail-template',
@@ -9,33 +9,18 @@ import { Recipient } from 'src/models/recipient';
   styleUrls: ['./send-mail-template.component.scss']
 })
 export class SendMailTemplateComponent implements OnInit {
-  selectedEmailTemplate: EmailTemplate;
-
-  // emailTemplates: Array<EmailTemplate> = [
-  //   {
-  //     title: "Template 01",
-  //     message: "Hello there, how are you?",
-  //     placeholders: ['email', 'name', 'age', 'favorite-color']
-  //   },
-  //   {
-  //     title: "Template 02",
-  //     message: "Hi there, how are you?",
-  //     placeholders: ['email', 'education', 'age', 'marital-status']
-  //   },
-  //   {
-  //     title: "Template 03",
-  //     message: "Wassup there, how are you?",
-  //     placeholders: ['email', 'name']
-  //   }
-  // ];
-
   emailTemplates: Array<EmailTemplate> = [];
+
+  selectedEmailTemplate: EmailTemplate;
 
   recipients: Array<Recipient> = [];
 
-  constructor() { }
+  constructor(private templateService: TemplateService) { }
 
   ngOnInit(): void {
+    this.templateService.getTemplates().subscribe((response: Array<EmailTemplate>) => {
+      this.emailTemplates = response;
+    });
   }
 
   onClickEmailTemplate(emailTemplate: EmailTemplate): void {
