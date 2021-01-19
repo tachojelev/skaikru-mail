@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { TemplateServiceService } from './template-service.service';
+import { TemplateServiceService } from './template.service';
 
 describe('TemplateServiceService', () => {
   let service: TemplateServiceService;

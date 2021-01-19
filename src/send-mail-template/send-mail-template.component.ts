@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmailTemplate } from 'src/models/email-template';
 import { Recipient } from 'src/models/recipient';
-import { TemplateService } from 'src/services/template-service.service';
+import { TemplateService } from 'src/services/template.service';
 
 @Component({
   selector: 'app-send-mail-template',

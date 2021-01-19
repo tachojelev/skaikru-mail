@@ -3,7 +3,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { EmailTemplate } from 'src/models/email-template';
-import { TemplateService } from 'src/services/template-service.service';
+import { TemplateService } from 'src/services/template.service';
 
 @Component({
   selector: 'app-create-template',

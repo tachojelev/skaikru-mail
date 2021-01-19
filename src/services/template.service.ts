@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { EmailRequest } from 'src/models/email-request';
 import { EmailTemplate } from 'src/models/email-template';
-import { SkaikruApi } from './../api/skaikru-api';
+import { SkaikruApi } from '../api/skaikru-api';
 
 @Injectable({
   providedIn: 'root'

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { EmailTemplate } from 'src/models/email-template';
-import { TemplateService } from 'src/services/template-service.service';
+import { TemplateService } from 'src/services/template.service';
 import { CreateTemplateComponent } from './create-template/create-template.component';
 import { DeleteTemplateComponent } from './delete-template/delete-template.component';
 import { EditTemplateComponent } from './edit-template/edit-template.component';
@@ -56,6 +56,17 @@ export class ViewTemplatesComponent implements OnInit {
       maxHeight: 800,
       autoFocus: false
     });
+
+    dialogRef.afterClosed().subscribe(({ success, cancelClicked }) => {
+      if (!cancelClicked) {
+        const message = success ? "Template edited successfully!" : "ERROR when editing template!";
+        this.snackbar.open(message, null, {
+          duration: 3000
+        });
+
+        this.fetchTemplates();
+      }
+    });
   }
 
   onDeleteTemplate(emailTemplate: EmailTemplate): void {
@@ -66,6 +77,17 @@ export class ViewTemplatesComponent implements OnInit {
       minHeight: 200,
       maxHeight: 800,
       autoFocus: false
+    });
+
+    dialogRef.afterClosed().subscribe(({ success, cancelClicked }) => {
+      if (!cancelClicked) {
+        const message = success ? "Template deleted successfully!" : "ERROR when deleting template!";
+        this.snackbar.open(message, null, {
+          duration: 3000
+        });
+
+        this.fetchTemplates();
+      }
     });
   }
 

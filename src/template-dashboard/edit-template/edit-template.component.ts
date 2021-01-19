@@ -1,7 +1,9 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { EmailTemplate } from 'src/models/email-template';
+import { TemplateService } from 'src/services/template.service';
 
 @Component({
   selector: 'app-edit-template',
@@ -15,10 +17,28 @@ export class EditTemplateComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     @Inject(MAT_DIALOG_DATA) public data: { emailTemplate: EmailTemplate },
-    private dialogRef: MatDialogRef<EditTemplateComponent>,) { }
+    private dialogRef: MatDialogRef<EditTemplateComponent>,
+    private templateService: TemplateService) { }
 
   ngOnInit(): void {
     this.generateForm();
+  }
+
+  onSaveTemplate(): void {
+    const emailTemplate = new EmailTemplate();
+    emailTemplate.title = this.formGroup.controls['title'].value;
+    emailTemplate.message = this.formGroup.controls['message'].value;
+    emailTemplate.placeholders = [];
+    
+    // CREATE PUT TO REPLACE OLD TEMPLATE AND CLOSE DIALOG ON SUCCESS
+    // this.templateService.editTemplate(emailTemplate).subscribe(
+    //   (response: EmailTemplate) => { this.handleSucces(response); },
+    //   (response: HttpErrorResponse) => { this.handleFailure(response); }
+    // );
+  }
+
+  onCancel(): void {
+    this.dialogRef.close({ success: true, cancelClicked: true });
   }
 
   private generateForm(): void {
@@ -30,14 +50,11 @@ export class EditTemplateComponent implements OnInit {
     this.formGroup = form;
   }
 
-  onSaveTemplate(): void {
-    // CREATE NEW EMAIL TEMPLATE
-    const emailTemplate = new EmailTemplate();
-    emailTemplate.title = this.formGroup.controls['title'].value;
-    emailTemplate.message = this.formGroup.controls['message'].value;
-    
-    // CREATE PUT TO REPLACE OLD TEMPLATE AND CLOSE DIALOG ON SUCCESS
+  private handleSucces(response: EmailTemplate): void {
+    this.dialogRef.close({ success: true, cancelClicked: false });
+  }
 
-    this.dialogRef.close({});
+  private handleFailure(response: HttpErrorResponse): void {
+    this.dialogRef.close({ success: false, cancelClicked: false });
   }
 }
