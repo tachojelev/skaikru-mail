@@ -7,10 +7,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SendMailTemplateRoutingModule } from 'src/send-mail-template/send-mail-template-routing.module';
 import { ViewTemplatesComponent } from './view-templates.component';
-import { TemplateDashboardRoutingModule } from './create-mail-template-routing.module';
+import { TemplateDashboardRoutingModule } from './template-dashboard-routing.module';
 import { CreateTemplateComponent } from './create-template/create-template.component';
 import { EditTemplateComponent } from './edit-template/edit-template.component';
 import { DeleteTemplateComponent } from './delete-template/delete-template.component';
@@ -29,7 +30,8 @@ import { DeleteTemplateComponent } from './delete-template/delete-template.compo
     MatFormFieldModule,
     MatInputModule,
     MatChipsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule
   ]
 })
 export class TemplateDashboardModule { }

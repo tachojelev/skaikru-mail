@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { EmailRequest } from 'src/models/email-request';
 import { EmailTemplate } from 'src/models/email-template';
 import { SkaikruApi } from './../api/skaikru-api';
 
@@ -13,5 +14,10 @@ export class TemplateService {
   getTemplates(): Observable<Array<EmailTemplate>> {
     const headers = new HttpHeaders().set('content-type', 'application/json');
     return this.httpClient.get<Array<EmailTemplate>>(SkaikruApi.FETCH_TEMPLATES, { headers });
+  }
+
+  addTemplate(emailTemplateRequest: EmailTemplate): Observable<EmailTemplate> {
+    const headers = new HttpHeaders().set('content-type', 'application/json');
+    return this.httpClient.post<EmailTemplate>(SkaikruApi.ADD_TEMPLATE, emailTemplateRequest, { headers });
   }
 }
