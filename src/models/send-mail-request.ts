@@ -1,6 +1,6 @@
 import { EmailTemplate } from "./email-template";
-import { Recipient } from "./recipient";
+import { RecipientRequest } from "./recipient-request";
 
 export class SendMailRequest extends EmailTemplate {
-    recipients: Array<Recipient>;
+    recipients: Array<RecipientRequest>;
 }

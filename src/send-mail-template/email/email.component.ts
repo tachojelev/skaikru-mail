@@ -4,7 +4,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { EmailTemplate } from 'src/models/email-template';
 import { Recipient } from 'src/models/recipient';
-import { SendMailRequest } from 'src/models/send-mail-request';
 import { MailService } from 'src/services/mail.service';
 import { EditRecipientComponent } from '../edit-recipient/edit-recipient.component';
 
@@ -47,21 +46,10 @@ export class EmailComponent implements OnInit {
   }
 
   send(): void {
-    console.log(this.emailTemplate);
-    console.log(this.recipients);
-    // Build request and send to BE
-    const sendMailRequest = new SendMailRequest();
-    sendMailRequest.title = this.emailTemplate.title;
-    sendMailRequest.message = this.emailTemplate.message;
-    sendMailRequest.placeholders = this.emailTemplate.placeholders;
-    sendMailRequest.recipients = this.recipients;
-    console.log(JSON.stringify(sendMailRequest));
-
-    // TODO: Serialize Map to JSON so the recipient placeholders are successfully sent
-    // this.mailService.sendMail(sendMailRequest).subscribe(
-    //   (response: number) => { this.handleSuccess(response); },
-    //   (response: HttpErrorResponse) => { this.handleFailure(response); }
-    // );
+    this.mailService.sendMail(this.emailTemplate, this.recipients).subscribe(
+      (response: number) => { this.handleSuccess(response); },
+      (response: HttpErrorResponse) => { this.handleFailure(response); }
+    );
   }
 
   private handleSuccess(response: number): void {
