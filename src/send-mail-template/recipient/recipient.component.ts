@@ -36,10 +36,10 @@ export class RecipientComponent implements OnInit, OnChanges {
       this.currentRecipient = new Recipient();
       /* Must have an email placeholder */
       this.currentRecipient.email = this.formGroup.controls.email.value;
-      this.currentRecipient.placeholderValues = new Map();
+      this.currentRecipient.placeholders = new Map();
 
       for (const placeholder of this.emailTemplate.placeholders) {
-        this.currentRecipient.placeholderValues.set(placeholder, this.formGroup.controls[placeholder].value);
+        this.currentRecipient.placeholders.set(placeholder, this.formGroup.controls[placeholder].value);
       }
 
       this.recipients.push(this.currentRecipient);

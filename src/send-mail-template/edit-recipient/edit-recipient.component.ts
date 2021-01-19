@@ -8,14 +8,14 @@ import { Recipient } from 'src/models/recipient';
   styleUrls: ['./edit-recipient.component.scss']
 })
 export class EditRecipientComponent {
-  keys: Array<string> = Array.from(this.data.recipient.placeholderValues.keys());
+  keys: Array<string> = Array.from(this.data.recipient.placeholders.keys());
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: { recipient: Recipient }) { }
 
   placeholderValueChange(key, event) {
-    this.data.recipient.placeholderValues.set(key, event);
+    this.data.recipient.placeholders.set(key, event);
     if (key === 'email') {
-      this.data.recipient.email = this.data.recipient.placeholderValues.get('email');
+      this.data.recipient.email = this.data.recipient.placeholders.get('email');
     }
   }
 }

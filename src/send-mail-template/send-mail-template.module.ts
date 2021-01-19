@@ -13,6 +13,7 @@ import { EmailComponent } from './email/email.component';
 import { RecipientComponent } from './recipient/recipient.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditRecipientComponent } from './edit-recipient/edit-recipient.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [SendMailTemplateComponent, EmailComponent, RecipientComponent, EditRecipientComponent],
@@ -27,7 +28,8 @@ import { EditRecipientComponent } from './edit-recipient/edit-recipient.componen
     MatFormFieldModule,
     MatInputModule,
     MatChipsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule
   ]
 })
 export class SendMailTemplateModule { }

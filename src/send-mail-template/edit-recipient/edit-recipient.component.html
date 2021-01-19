@@ -7,8 +7,8 @@
         <mat-form-field *ngFor="let key of keys">
             <mat-label>{{ key }}</mat-label>
             <input matInput
-                   [name]="data.recipient.placeholderValues.get(key)"
-                   [ngModel]="data.recipient.placeholderValues.get(key)"
+                   [name]="data.recipient.placeholders.get(key)"
+                   [ngModel]="data.recipient.placeholders.get(key)"
                    (ngModelChange)="placeholderValueChange(key, $event)">
         </mat-form-field>
     </form>
