@@ -13,6 +13,15 @@
             <form class="properties-form"
                   [formGroup]="formGroup"
                   name="formGroup">
+                <!-- MUST have an email -->
+                <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput
+                        required
+                        [formControlName]="'recipientEmail'"
+                >
+                </mat-form-field>
+                <!-- Placeholder values -->
                 <mat-form-field *ngFor="let placeholder of emailTemplate.placeholders">
                     <mat-label>{{ placeholder }}</mat-label>
                     <input matInput

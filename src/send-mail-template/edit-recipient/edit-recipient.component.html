@@ -4,9 +4,18 @@
 
 <mat-dialog-content>
     <form>
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput
+                   required
+                   [name]="'recipientEmail'"
+                   [(ngModel)]="data.recipient.email"
+            >
+        </mat-form-field>
         <mat-form-field *ngFor="let key of keys">
             <mat-label>{{ key }}</mat-label>
             <input matInput
+                   required
                    [name]="data.recipient.placeholders.get(key)"
                    [ngModel]="data.recipient.placeholders.get(key)"
                    (ngModelChange)="placeholderValueChange(key, $event)">

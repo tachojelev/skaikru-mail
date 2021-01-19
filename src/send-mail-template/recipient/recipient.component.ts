@@ -34,8 +34,8 @@ export class RecipientComponent implements OnInit, OnChanges {
   addRecipient(): void {
     if (this.formGroup.valid) {
       this.currentRecipient = new Recipient();
-      /* Must have an email placeholder */
-      this.currentRecipient.email = this.formGroup.controls.email.value;
+      /* MUST have an email. */
+      this.currentRecipient.email = this.formGroup.controls.recipientEmail.value;
       this.currentRecipient.placeholders = new Map();
 
       for (const placeholder of this.emailTemplate.placeholders) {
@@ -50,8 +50,11 @@ export class RecipientComponent implements OnInit, OnChanges {
   private generateForm(): void {
     const form: FormGroup = this.formBuilder.group({});
 
+    /* MUST have an email. */
+    form.addControl('recipientEmail', new FormControl('', [Validators.required, Validators.email]));
+
     for (const placeholder of this.emailTemplate.placeholders) {
-      const formControl = new FormControl('', placeholder === 'email' ? [Validators.required, Validators.email] : [Validators.required]);
+      const formControl = new FormControl('', [Validators.required]);
       form.addControl(placeholder, formControl)
     }
 

@@ -14,8 +14,5 @@ export class EditRecipientComponent {
 
   placeholderValueChange(key, event) {
     this.data.recipient.placeholders.set(key, event);
-    if (key === 'email') {
-      this.data.recipient.email = this.data.recipient.placeholders.get('email');
-    }
   }
 }

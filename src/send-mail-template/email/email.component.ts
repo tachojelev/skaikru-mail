@@ -55,11 +55,13 @@ export class EmailComponent implements OnInit {
     sendMailRequest.message = this.emailTemplate.message;
     sendMailRequest.placeholders = this.emailTemplate.placeholders;
     sendMailRequest.recipients = this.recipients;
+    console.log(JSON.stringify(sendMailRequest));
 
-    this.mailService.sendMail(sendMailRequest).subscribe(
-      (response: number) => { this.handleSuccess(response); },
-      (response: HttpErrorResponse) => { this.handleFailure(response); }
-    );
+    // TODO: Serialize Map to JSON so the recipient placeholders are successfully sent
+    // this.mailService.sendMail(sendMailRequest).subscribe(
+    //   (response: number) => { this.handleSuccess(response); },
+    //   (response: HttpErrorResponse) => { this.handleFailure(response); }
+    // );
   }
 
   private handleSuccess(response: number): void {
