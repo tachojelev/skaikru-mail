@@ -4,6 +4,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { EmailTemplate } from 'src/models/email-template';
 import { TemplateService } from 'src/services/template.service';
+import { UtilService } from 'src/services/util.service';
 
 @Component({
   selector: 'app-create-template',
@@ -18,6 +19,7 @@ export class CreateTemplateComponent implements OnInit {
     private formBuilder: FormBuilder,
     @Inject(MAT_DIALOG_DATA) public data: {  },
     private dialogRef: MatDialogRef<CreateTemplateComponent>,
+    private utilService: UtilService,
     private templateService: TemplateService) { }
 
   ngOnInit(): void {
@@ -28,7 +30,7 @@ export class CreateTemplateComponent implements OnInit {
     const emailTemplate = new EmailTemplate();
     emailTemplate.title = this.formGroup.controls['title'].value;
     emailTemplate.message = this.formGroup.controls['message'].value;
-    emailTemplate.placeholders = [];
+    emailTemplate.placeholders = this.utilService.extractPlaceholders(emailTemplate.message);
 
     this.templateService.addTemplate(emailTemplate).subscribe(
       (response: EmailTemplate) => { this.handleSucces(response); },
