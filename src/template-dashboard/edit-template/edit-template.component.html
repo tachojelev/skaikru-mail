@@ -7,9 +7,10 @@
     <form [formGroup]="formGroup" name="formGroup">
         <mat-form-field>
             <mat-label>Template title</mat-label>
+            <!-- Title currently uneditable
+            [formControlName]="'title'" -->
             <input matInput
-                   required
-                   [formControlName]="'title'"
+                   [disabled]="true"
                    >
         </mat-form-field>
         <mat-form-field class="message-form-field">
@@ -35,6 +36,6 @@
             color="primary"
             [disabled]="formGroup.invalid"
             (click)="onSaveTemplate()">
-        Create
+        Save
     </button>
 </mat-dialog-actions>

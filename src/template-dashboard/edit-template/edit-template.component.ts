@@ -28,15 +28,17 @@ export class EditTemplateComponent implements OnInit {
 
   onSaveTemplate(): void {
     const emailTemplate = new EmailTemplate();
-    emailTemplate.title = this.formGroup.controls['title'].value;
+    // Title currently uneditable
+    // emailTemplate.title = this.formGroup.controls['title'].value;
+    emailTemplate.title = this.data.emailTemplate.title;
     emailTemplate.message = this.formGroup.controls['message'].value;
     emailTemplate.placeholders = this.utilService.extractPlaceholders(emailTemplate.message);
     
     // CREATE PUT TO REPLACE OLD TEMPLATE AND CLOSE DIALOG ON SUCCESS
-    // this.templateService.editTemplate(emailTemplate).subscribe(
-    //   (response: EmailTemplate) => { this.handleSucces(response); },
-    //   (response: HttpErrorResponse) => { this.handleFailure(response); }
-    // );
+    this.templateService.addTemplate(emailTemplate).subscribe(
+      (response: EmailTemplate) => { this.handleSucces(response); },
+      (response: HttpErrorResponse) => { this.handleFailure(response); }
+    );
   }
 
   onCancel(): void {
@@ -46,7 +48,8 @@ export class EditTemplateComponent implements OnInit {
   private generateForm(): void {
     const form: FormGroup = this.formBuilder.group({});
 
-    form.addControl('title', new FormControl(this.data.emailTemplate.title, [Validators.required]));
+    // Title currently uneditable
+    // form.addControl('title', new FormControl(this.data.emailTemplate.title, [Validators.required]));
     form.addControl('message', new FormControl(this.data.emailTemplate.message, [Validators.required]));
 
     this.formGroup = form;

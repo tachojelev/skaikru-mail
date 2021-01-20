@@ -19,4 +19,9 @@ export class TemplateService {
     const headers = new HttpHeaders().set('content-type', 'application/json');
     return this.httpClient.post<EmailTemplate>(SkaikruApi.ADD_TEMPLATE, emailTemplateRequest, { headers });
   }
+
+  deleteTemplate(title: string): Observable<any> {
+    const headers = new HttpHeaders().set('content-type', 'application/json');
+    return this.httpClient.delete<any>(SkaikruApi.DELETE_TEMPLATE + `${title}`, { headers });
+  }
 }

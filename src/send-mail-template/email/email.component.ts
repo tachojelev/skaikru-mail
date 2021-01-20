@@ -49,7 +49,6 @@ export class EmailComponent implements OnInit {
 
   send(): void {
     this.sending = true;
-    debugger;
     this.mailService.sendMail(this.emailTemplate, this.recipients).subscribe(
       (response: number) => { this.handleSuccess(response); },
       (response: HttpErrorResponse) => { this.handleFailure(response); }
@@ -58,7 +57,7 @@ export class EmailComponent implements OnInit {
 
   private handleSuccess(response: number): void {
     this.sending = false;
-    this.snackbar.open("Message sent successfully!", null, {
+    this.snackbar.open(`${response} message(s) sent successfully!`, null, {
       duration: 3000
     });
   }

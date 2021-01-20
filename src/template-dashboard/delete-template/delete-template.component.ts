@@ -17,11 +17,10 @@ export class DeleteTemplateComponent {
     private templateService: TemplateService) { }
 
   onDeleteTemplate(): void {
-    // CREATE DELETE REQ TO DELETE TEMPLATE AND CLOSE DIALOG ON SUCCESS
-    // this.templateService.deleteTemplate(this.data.emailTemplate).subscribe(
-    //   (response: EmailTemplate) => { this.handleSucces(response); },
-    //   (response: HttpErrorResponse) => { this.handleFailure(response); }
-    // );
+    this.templateService.deleteTemplate(this.data.emailTemplate.title).subscribe(
+      (response: any) => { this.handleSucces(response); },
+      (response: HttpErrorResponse) => { this.handleFailure(response); }
+    );
   }
 
   onCancel(): void {
