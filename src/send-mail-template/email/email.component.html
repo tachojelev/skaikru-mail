@@ -35,8 +35,13 @@
         <button mat-raised-button
                 color="primary"
                 (click)="send()"
-                [disabled]="false">
-            Send
+                [disabled]="!recipients?.length || sending">
+            <ng-container *ngIf="!sending">
+                Send
+            </ng-container>
+            <ng-container *ngIf="sending">
+                <mat-spinner class="send-spinner" color="accent" diameter="24"></mat-spinner>
+            </ng-container>
         </button>
     </mat-card-actions>
 </mat-card>
