@@ -6,6 +6,7 @@ import { EmailTemplate } from 'src/models/email-template';
 import { Recipient } from 'src/models/recipient';
 import { MailService } from 'src/services/mail.service';
 import { EditRecipientComponent } from '../edit-recipient/edit-recipient.component';
+import { PreviewComponent } from '../preview/preview.component';
 
 @Component({
   selector: 'app-email',
@@ -53,6 +54,16 @@ export class EmailComponent implements OnInit {
       (response: number) => { this.handleSuccess(response); },
       (response: HttpErrorResponse) => { this.handleFailure(response); }
     );
+  }
+
+  preview(): void {
+    const dialogRef = this.dialog.open(PreviewComponent, {
+      data: { emailTemplate: this.emailTemplate, recipients: this.recipients },
+      disableClose: false,
+      minWidth: 600,
+      minHeight: 300,
+      autoFocus: false
+    });
   }
 
   private handleSuccess(response: number): void {

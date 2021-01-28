@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { SkaikruApi } from 'src/api/skaikru-api';
 import { EmailTemplate } from 'src/models/email-template';
+import { PreviewRecipientEmail } from 'src/models/preview-recipient-email';
 import { Recipient } from 'src/models/recipient';
 import { RecipientRequest } from 'src/models/recipient-request';
 import { SendMailRequest } from 'src/models/send-mail-request';
@@ -19,6 +20,13 @@ export class MailService {
     const payload = this.buildSendMailRequest(emailTemplate, recipients);
 
     return this.httpClient.post<number>(SkaikruApi.SEND_MAILS, payload, { headers });
+  }
+
+  previewMail(emailTemplate: EmailTemplate, recipients: Array<Recipient>): Observable<Array<PreviewRecipientEmail>> {
+    const headers = new HttpHeaders().set('content-type', 'application/json');
+    const payload = this.buildSendMailRequest(emailTemplate, recipients);
+
+    return this.httpClient.post<Array<PreviewRecipientEmail>>(SkaikruApi.PREVIEW_MAILS, payload, { headers });
   }
 
   private buildSendMailRequest(emailTemplate: EmailTemplate, recipients: Array<Recipient>): SendMailRequest {

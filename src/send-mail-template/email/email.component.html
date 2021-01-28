@@ -34,6 +34,12 @@
     <mat-card-actions>
         <button mat-raised-button
                 color="primary"
+                (click)="preview()"
+                [disabled]="!recipients?.length">
+            Preview
+        </button>
+        <button mat-raised-button
+                color="primary"
                 (click)="send()"
                 [disabled]="!recipients?.length || sending">
             <ng-container *ngIf="!sending">

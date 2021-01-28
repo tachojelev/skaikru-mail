@@ -15,9 +15,10 @@ import { RecipientComponent } from './recipient/recipient.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditRecipientComponent } from './edit-recipient/edit-recipient.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { PreviewComponent } from './preview/preview.component';
 
 @NgModule({
-  declarations: [SendMailTemplateComponent, EmailComponent, RecipientComponent, EditRecipientComponent],
+  declarations: [SendMailTemplateComponent, EmailComponent, RecipientComponent, EditRecipientComponent, PreviewComponent],
   imports: [
     CommonModule,
     FormsModule,
