@@ -19,6 +19,10 @@ const routes: Routes = [
   {
     path: 'send-mail-template',
     loadChildren: () => import('../send-mail-template/send-mail-template.module').then(m => m.SendMailTemplateModule)
+  },
+  {
+    path: 'view-history',
+    loadChildren: () => import('../view-history/view-history.module').then(m => m.ViewHistoryModule)
   }
 ];
 

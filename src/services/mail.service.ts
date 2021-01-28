@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { SkaikruApi } from 'src/api/skaikru-api';
+import { EmailRecord } from 'src/models/email-record';
 import { EmailTemplate } from 'src/models/email-template';
 import { PreviewRecipientEmail } from 'src/models/preview-recipient-email';
 import { Recipient } from 'src/models/recipient';
@@ -14,6 +15,11 @@ import { SendMailRequest } from 'src/models/send-mail-request';
 export class MailService {
 
   constructor(private httpClient: HttpClient) { }
+
+  getHistory(): Observable<Array<EmailRecord>> {
+    const headers = new HttpHeaders().set('content-type', 'application/json');
+    return this.httpClient.get<Array<EmailRecord>>(SkaikruApi.HISTORY, { headers });
+  }
 
   sendMail(emailTemplate: EmailTemplate, recipients: Array<Recipient>, html: boolean): Observable<number> {
     const headers = new HttpHeaders().set('content-type', 'application/json');
