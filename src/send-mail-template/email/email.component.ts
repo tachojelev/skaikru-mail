@@ -20,6 +20,8 @@ export class EmailComponent implements OnInit {
   @Input()
   recipients: Array<Recipient>;
 
+  html = false;
+
   sending = false;
 
   constructor(
@@ -49,8 +51,9 @@ export class EmailComponent implements OnInit {
   }
 
   send(): void {
+    console.log(this.html);
     this.sending = true;
-    this.mailService.sendMail(this.emailTemplate, this.recipients).subscribe(
+    this.mailService.sendMail(this.emailTemplate, this.recipients, this.html).subscribe(
       (response: number) => { this.handleSuccess(response); },
       (response: HttpErrorResponse) => { this.handleFailure(response); }
     );

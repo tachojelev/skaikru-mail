@@ -10,6 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { EmailComponent } from './email/email.component';
 import { RecipientComponent } from './recipient/recipient.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -32,7 +33,8 @@ import { PreviewComponent } from './preview/preview.component';
     MatChipsModule,
     MatDialogModule,
     MatSnackBarModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatCheckboxModule
   ]
 })
 export class SendMailTemplateModule { }

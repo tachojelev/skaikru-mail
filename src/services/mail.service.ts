@@ -15,26 +15,27 @@ export class MailService {
 
   constructor(private httpClient: HttpClient) { }
 
-  sendMail(emailTemplate: EmailTemplate, recipients: Array<Recipient>): Observable<number> {
+  sendMail(emailTemplate: EmailTemplate, recipients: Array<Recipient>, html: boolean): Observable<number> {
     const headers = new HttpHeaders().set('content-type', 'application/json');
-    const payload = this.buildSendMailRequest(emailTemplate, recipients);
+    const payload = this.buildSendMailRequest(emailTemplate, recipients, html);
 
     return this.httpClient.post<number>(SkaikruApi.SEND_MAILS, payload, { headers });
   }
 
   previewMail(emailTemplate: EmailTemplate, recipients: Array<Recipient>): Observable<Array<PreviewRecipientEmail>> {
     const headers = new HttpHeaders().set('content-type', 'application/json');
-    const payload = this.buildSendMailRequest(emailTemplate, recipients);
+    const payload = this.buildSendMailRequest(emailTemplate, recipients, false);
 
     return this.httpClient.post<Array<PreviewRecipientEmail>>(SkaikruApi.PREVIEW_MAILS, payload, { headers });
   }
 
-  private buildSendMailRequest(emailTemplate: EmailTemplate, recipients: Array<Recipient>): SendMailRequest {
+  private buildSendMailRequest(emailTemplate: EmailTemplate, recipients: Array<Recipient>, html: boolean): SendMailRequest {
     const sendMailRequest = new SendMailRequest();
     sendMailRequest.title = emailTemplate.title;
     sendMailRequest.message = emailTemplate.message;
     sendMailRequest.placeholders = emailTemplate.placeholders;
     sendMailRequest.recipients = this.buildRecipientRequests(recipients);
+    sendMailRequest.html = html;
 
     return sendMailRequest;
   }
